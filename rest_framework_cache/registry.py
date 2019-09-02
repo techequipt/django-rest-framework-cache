@@ -36,7 +36,7 @@ class CacheRegistry:
         for relation_str in relations_to_track:
             related_model, lookup = reverse_field_path(model, relation_str)
             self._related_registry[related_model].append(lookup)
-        self.connect_related_signals()
+            self.connect_related_signals(related_model)
 
     def connect_signals(self, model):
         from .signals import clear_instance  # NOQA - Prevent circular import
