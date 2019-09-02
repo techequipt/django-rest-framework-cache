@@ -9,7 +9,7 @@ from .exceptions import AlreadyRegistered
 class CacheRegistry:
     def __init__(self):
         self._registry = {}
-        self._related_registry = defaultdict([])
+        self._related_registry = defaultdict(list)
 
     def register(self, serializer, relations_to_track=[]):
         """Store the serializer and model on registry to that the cache can be
